@@ -5,7 +5,10 @@ function App() {
   return (
     <div>
       <h3>App Component</h3>
+      <hr />
       <CommentBox />
+      <hr />
+
       <CommentList />
     </div>
   );
