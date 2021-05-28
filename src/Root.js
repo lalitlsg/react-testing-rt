@@ -4,9 +4,11 @@ import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducers from "./reducers";
 
-const Root = ({ children }) => {
+const Root = ({ children, initialState = {} }) => {
   return (
-    <Provider store={createStore(reducers, {}, composeWithDevTools())}>
+    <Provider
+      store={createStore(reducers, initialState, composeWithDevTools())}
+    >
       {children}
     </Provider>
   );
