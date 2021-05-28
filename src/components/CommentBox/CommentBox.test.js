@@ -1,10 +1,15 @@
 import { mount } from "enzyme"; // using mount here just to see how `mount` works, but here `shallow` can also be use;
 import CommentBox from "./CommentBox";
+import Root from "../../Root";
 
 let wrapper;
 
 beforeEach(() => {
-  wrapper = mount(<CommentBox />);
+  wrapper = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  );
 });
 
 afterEach(() => {
