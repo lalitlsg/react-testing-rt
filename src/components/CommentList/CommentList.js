@@ -1,7 +1,13 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "../../actions";
 
 class CommentList extends Component {
+  componentDidMount() {
+    this.props.fetchComments();
+    console.log(this.props.comments);
+  }
+
   renderComments = () => {
     return this.props.comments.map((c) => <li key={c}>{c}</li>);
   };
@@ -23,4 +29,4 @@ const mapStateToProps = (state) => {
   return { comments };
 };
 
-export default connect(mapStateToProps)(CommentList);
+export default connect(mapStateToProps, actions)(CommentList);
