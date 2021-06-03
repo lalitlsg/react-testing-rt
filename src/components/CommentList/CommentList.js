@@ -4,7 +4,7 @@ import * as actions from "../../actions";
 
 class CommentList extends Component {
   componentDidMount() {
-    this.props.fetchComments();
+    // this.props.fetchComments();
   }
 
   renderComments = () => {

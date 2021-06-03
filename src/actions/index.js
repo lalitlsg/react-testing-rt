@@ -1,4 +1,4 @@
-import { FETCH_COMMENTS, SAVE_COMMENTS } from "./types";
+import { AUTH_TOGGLE, FETCH_COMMENTS, SAVE_COMMENTS } from "./types";
 import axios from "axios";
 
 export const saveComments = (comments) => {
@@ -17,5 +17,12 @@ export const fetchComments = () => {
       type: FETCH_COMMENTS,
       payload: response.data,
     });
+  };
+};
+
+export const authToggle = (isLoggedIn) => {
+  return {
+    type: AUTH_TOGGLE,
+    payload: isLoggedIn,
   };
 };

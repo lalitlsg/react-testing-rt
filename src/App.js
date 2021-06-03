@@ -1,17 +1,42 @@
+import { Component } from "react";
+import { Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 import CommentBox from "./components/CommentBox/CommentBox";
 import CommentList from "./components/CommentList/CommentList";
 
-function App() {
-  return (
-    <div>
-      <h3>App Component</h3>
-      <hr />
-      <CommentBox />
-      <hr />
+class App extends Component {
+  renderLoginButton = () => {
+    return this.props.auth ? <button>Logout</button> : <button>Login</button>;
+  };
 
-      <CommentList />
-    </div>
-  );
+  renderHeader = () => {
+    return (
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/post">Post Comment</Link>
+        </li>
+        <li>{this.renderLoginButton()}</li>
+      </ul>
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        {this.renderHeader()}
+        <Route path="/post" component={CommentBox} />
+        <Route path="/" exact component={CommentList} />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const { auth } = state;
+  return { auth };
+};
+
+export default connect(mapStateToProps)(App);

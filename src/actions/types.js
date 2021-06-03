@@ -1,2 +1,3 @@
 export const SAVE_COMMENTS = "SAVE_COMMENTS";
 export const FETCH_COMMENTS = "FETCH_COMMENTS";
+export const AUTH_TOGGLE = "AUTH_TOGGLE";
