@@ -3,10 +3,15 @@ import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import CommentBox from "./components/CommentBox/CommentBox";
 import CommentList from "./components/CommentList/CommentList";
+import { authToggle } from "./actions";
 
 class App extends Component {
   renderLoginButton = () => {
-    return this.props.auth ? <button>Logout</button> : <button>Login</button>;
+    return this.props.auth ? (
+      <button onClick={() => this.props.authToggle(false)}>Logout</button>
+    ) : (
+      <button onClick={() => this.props.authToggle(true)}>Login</button>
+    );
   };
 
   renderHeader = () => {
@@ -39,4 +44,4 @@ const mapStateToProps = (state) => {
   return { auth };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { authToggle })(App);
