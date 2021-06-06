@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CommentBox from "./components/CommentBox/CommentBox";
 import CommentList from "./components/CommentList/CommentList";
 import { authToggle } from "./actions";
+import "./App.css";
 
 class App extends Component {
   renderLoginButton = () => {
@@ -30,10 +31,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App-header">
         {this.renderHeader()}
         <Route path="/post" component={CommentBox} />
         <Route path="/" exact component={CommentList} />
+        <div className="btn">click</div>
       </div>
     );
   }
